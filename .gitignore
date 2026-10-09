@@ -1,0 +1,8 @@
+**/target/
+.idea/
+*.iml
+.env
+*.log
+
+# JDK diagnostic attach handshake files
+.attach_pid*

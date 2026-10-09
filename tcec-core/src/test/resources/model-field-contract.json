@@ -1,0 +1,2420 @@
+[
+  {
+    "model": "ConnectorStatusInfo",
+    "referenceModel": "ConnectorStatusInfo",
+    "fields": [
+      {
+        "wire": "ConnectorID",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "Status",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "ParkStatus",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "LockStatus",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "ConnectorStats",
+    "referenceModel": "ConnectorStatsInfo",
+    "fields": [
+      {
+        "wire": "ConnectorID",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "ConnectorElectricity",
+        "type": "BigDecimal",
+        "referenceType": "Double",
+        "default": "0.0"
+      }
+    ]
+  },
+  {
+    "model": "GroundLockAuth",
+    "referenceModel": "GroundLockAuth",
+    "fields": [
+      {
+        "wire": "StationID",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "Auth",
+        "type": "Boolean",
+        "referenceType": "Boolean",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "ChargeDetail",
+    "referenceModel": "ChargeDetails",
+    "fields": [
+      {
+        "wire": "DetailStartTime",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "DetailEndTime",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "ElecPrice",
+        "type": "BigDecimal",
+        "referenceType": "Double",
+        "default": "0.0"
+      },
+      {
+        "wire": "ServicePrice",
+        "type": "BigDecimal",
+        "referenceType": "Double",
+        "default": "0.0"
+      },
+      {
+        "wire": "DetailPower",
+        "type": "BigDecimal",
+        "referenceType": "Double",
+        "default": "0.0"
+      },
+      {
+        "wire": "DetailElecMoney",
+        "type": "BigDecimal",
+        "referenceType": "Double",
+        "default": "0.0"
+      },
+      {
+        "wire": "DetailServiceMoney",
+        "type": "BigDecimal",
+        "referenceType": "Double",
+        "default": "0.0"
+      }
+    ]
+  },
+  {
+    "model": "StationInfo",
+    "referenceModel": "StationInfo",
+    "fields": [
+      {
+        "wire": "StationID",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "OperatorID",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "EquipmentOwnerID",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "StationName",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "CountryCode",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "AreaCode",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "Address",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "StationTel",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "ServiceTel",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "StationType",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": "1"
+      },
+      {
+        "wire": "StationStatus",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": "0"
+      },
+      {
+        "wire": "ParkNums",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": "0"
+      },
+      {
+        "wire": "StationLng",
+        "type": "BigDecimal",
+        "referenceType": "Double",
+        "default": "0.0"
+      },
+      {
+        "wire": "StationLat",
+        "type": "BigDecimal",
+        "referenceType": "Double",
+        "default": "0.0"
+      },
+      {
+        "wire": "SiteGuide",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "Construction",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "Pictures",
+        "type": "List<String>",
+        "referenceType": "List<String>",
+        "default": null
+      },
+      {
+        "wire": "MatchCars",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "ParkInfo",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "BusineHours",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "ElectricityFee",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "ServiceFee",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "ParkFee",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "Payment",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "SupportOrder",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": "0"
+      },
+      {
+        "wire": "Remark",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "EquipmentInfos",
+        "type": "List<EquipmentInfo>",
+        "referenceType": "List<EquipmentInfo>",
+        "default": null
+      },
+      {
+        "wire": "HasParkingLock",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "FreeParking",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "SubPark",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "DutyNum",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "Wc",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "Rainshed",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "Lounge",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "LightMeal",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "Shop",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "LimitFreeParking",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "GroundLock",
+    "referenceModel": "GroundLock",
+    "fields": [
+      {
+        "wire": "LockNum",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "WorkplaceName",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "LockStatus",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "OrderInfo",
+    "referenceModel": "OrderInfo",
+    "fields": [
+      {
+        "wire": "StartChargeSeq",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "XJChargeSeq",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "StationName",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "ConnectorID",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "StartTime",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "EndTime",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "ChargeTime",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "TotalPower",
+        "type": "BigDecimal",
+        "referenceType": "Float",
+        "default": null
+      },
+      {
+        "wire": "TotalElecMoney",
+        "type": "BigDecimal",
+        "referenceType": "Float",
+        "default": null
+      },
+      {
+        "wire": "TotalSeviceMoney",
+        "type": "BigDecimal",
+        "referenceType": "Float",
+        "default": null
+      },
+      {
+        "wire": "TotalMoney",
+        "type": "BigDecimal",
+        "referenceType": "Float",
+        "default": null
+      },
+      {
+        "wire": "OrderStatus",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "RealPayMoney",
+        "type": "BigDecimal",
+        "referenceType": "Float",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "StationStats",
+    "referenceModel": "StationStatsInfo",
+    "fields": [
+      {
+        "wire": "StationID",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "StartTime",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "EndTime",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "StationElectricity",
+        "type": "BigDecimal",
+        "referenceType": "Double",
+        "default": "0.0"
+      },
+      {
+        "wire": "EquipmentStatsInfos",
+        "type": "List<EquipmentStats>",
+        "referenceType": "List<EquipmentStatsInfo>",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "StationStatusInfo",
+    "referenceModel": "StationStatusInfo",
+    "fields": [
+      {
+        "wire": "FullStationID",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "StationID",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "ConnectorStatusInfos",
+        "type": "List<ConnectorStatusInfo>",
+        "referenceType": "List<ConnectorStatusInfo>",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "OperatorInfo",
+    "referenceModel": "OperatorInfo",
+    "fields": [
+      {
+        "wire": "OperatorID",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "OperatorName",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "OperatorTel1",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "OperatorTel2",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "OperatorRegAddress",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "OperatorNote",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "EquipmentInfo",
+    "referenceModel": "EquipmentInfo",
+    "fields": [
+      {
+        "wire": "EquipmentID",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "ManufacturerID",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "ManufacturerName",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "EquipmentModel",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "ProductionDate",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "EquipmentType",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": "5"
+      },
+      {
+        "wire": "ConnectorInfos",
+        "type": "List<ConnectorInfo>",
+        "referenceType": "List<ConnectorInfo>",
+        "default": null
+      },
+      {
+        "wire": "EquipmentLng",
+        "type": "BigDecimal",
+        "referenceType": "Double",
+        "default": "0.0"
+      },
+      {
+        "wire": "EquipmentLat",
+        "type": "BigDecimal",
+        "referenceType": "Double",
+        "default": "0.0"
+      },
+      {
+        "wire": "Power",
+        "type": "BigDecimal",
+        "referenceType": "Double",
+        "default": "0.0"
+      },
+      {
+        "wire": "EquipmentName",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "PolicyInfo",
+    "referenceModel": "PolicyInfo",
+    "fields": [
+      {
+        "wire": "StartTime",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "ElecPrice",
+        "type": "BigDecimal",
+        "referenceType": "Double",
+        "default": "0.0"
+      },
+      {
+        "wire": "ServicePrice",
+        "type": "BigDecimal",
+        "referenceType": "Double",
+        "default": "0.0"
+      }
+    ]
+  },
+  {
+    "model": "EquipmentStats",
+    "referenceModel": "EquipmentStatsInfo",
+    "fields": [
+      {
+        "wire": "EquipmentID",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "EquipmentElectricity",
+        "type": "BigDecimal",
+        "referenceType": "Double",
+        "default": "0.0"
+      },
+      {
+        "wire": "ConnectorStatsInfos",
+        "type": "List<ConnectorStats>",
+        "referenceType": "List<ConnectorStatsInfo>",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "ReconciliationOrder",
+    "referenceModel": "ChargeOrder",
+    "fields": [
+      {
+        "wire": "StartChargeSeq",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "TotalPower",
+        "type": "BigDecimal",
+        "referenceType": "Double",
+        "default": null
+      },
+      {
+        "wire": "TotalMoney",
+        "type": "BigDecimal",
+        "referenceType": "Double",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "ConnectorInfo",
+    "referenceModel": "ConnectorInfo",
+    "fields": [
+      {
+        "wire": "ConnectorID",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "ConnectorName",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "ConnectorType",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "VoltageUpperLimits",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "VoltageLowerLimits",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "Current",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "Power",
+        "type": "BigDecimal",
+        "referenceType": "Double",
+        "default": "0.0"
+      },
+      {
+        "wire": "ParkNo",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "NationalStandard",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "DisputeOrder",
+    "referenceModel": "DisputeOrder",
+    "fields": [
+      {
+        "wire": "StartChargeSeq",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "TotalPower",
+        "type": "BigDecimal",
+        "referenceType": "Double",
+        "default": "0.0"
+      },
+      {
+        "wire": "TotalMoney",
+        "type": "BigDecimal",
+        "referenceType": "Double",
+        "default": "0.0"
+      },
+      {
+        "wire": "DisputeReason",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "QueryOpenLinkRequest",
+    "referenceModel": "QueryOpenLinkRequest",
+    "fields": [
+      {
+        "wire": "Mobile",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "OutUserId",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "QueryGroundLocksRequest",
+    "referenceModel": "QueryGroundLocksRequest",
+    "fields": [
+      {
+        "wire": "StationID",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "QueryParkingFreeInfoRequest",
+    "referenceModel": "QueryParkingFreeInfoRequest",
+    "fields": [
+      {
+        "wire": "StartChargeSeq",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "CarNumber",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "QueryConfirmLinkRequest",
+    "referenceModel": "QueryConfirmLinkRequest",
+    "fields": [
+      {
+        "wire": "Mobile",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "OutUserId",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "QRCode",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "QueryStationsInfoRequest",
+    "referenceModel": "QueryStationsInfoRequest",
+    "fields": [
+      {
+        "wire": "LastQueryTime",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "PageNo",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": "1"
+      },
+      {
+        "wire": "PageSize",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": "10"
+      }
+    ]
+  },
+  {
+    "model": "NotificationUserAuthRequest",
+    "referenceModel": "NotificationUserAuthRequest",
+    "fields": [
+      {
+        "wire": "Mobile",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "OutUserId",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "CheckChargeOrdersRequest",
+    "referenceModel": "CheckOrdersRequest",
+    "fields": [
+      {
+        "wire": "CheckOrderSeq",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "StartTime",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "EndTime",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "OrderCount",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "TotalOrderPower",
+        "type": "BigDecimal",
+        "referenceType": "Double",
+        "default": "0.0"
+      },
+      {
+        "wire": "TotalOrderMoney",
+        "type": "BigDecimal",
+        "referenceType": "Double",
+        "default": "0.0"
+      },
+      {
+        "wire": "ChargeOrders",
+        "type": "List<ReconciliationOrder>",
+        "referenceType": "List<ChargeOrder>",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "QueryParkingStationRequest",
+    "referenceModel": "QueryParkingStationRequest",
+    "fields": [
+      {
+        "wire": "StationID",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "NotificationStationStatusRequest",
+    "referenceModel": "NotificationStationStatusRequest",
+    "fields": [
+      {
+        "wire": "ConnectorStatusInfo",
+        "type": "ConnectorStatusInfo",
+        "referenceType": "ConnectorStatusInfo",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "QueryParkingFreeWaveRequest",
+    "referenceModel": "QueryParkingFreeWaveRequest",
+    "fields": [
+      {
+        "wire": "StartChargeSeq",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "CarNumber",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "ModifyParkingCarNumberRequest",
+    "referenceModel": "ModifyParkingCarNumberRequest",
+    "fields": [
+      {
+        "wire": "StartChargeSeq",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "CarNumber",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "QueryStationStatsRequest",
+    "referenceModel": "QueryStationStatsRequest",
+    "fields": [
+      {
+        "wire": "StationID",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "StartTime",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "EndTime",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "QueryEquipChargeStatusRequest",
+    "referenceModel": "QueryEquipChargeStatusRequest",
+    "fields": [
+      {
+        "wire": "StartChargeSeq",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "QueryEquipBusinessPolicyRequest",
+    "referenceModel": "QueryEquipBusinessPolicyRequest",
+    "fields": [
+      {
+        "wire": "EquipBizSeq",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "ConnectorID",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "QueryEquipAuthRequest",
+    "referenceModel": "QueryEquipAuthRequest",
+    "fields": [
+      {
+        "wire": "EquipAuthSeq",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "ConnectorID",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "QueryStopChargeRequest",
+    "referenceModel": "QueryStopChargeRequest",
+    "fields": [
+      {
+        "wire": "StartChargeSeq",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "ConnectorID",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "NotificationStopChargeResultRequest",
+    "referenceModel": "NotificationStopChargeRequest",
+    "fields": [
+      {
+        "wire": "StartChargeSeq",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "StartChargeSeqStat",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "ConnectorID",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "SuccStat",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "FailReason",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "ChargeOrderInfo",
+    "referenceModel": "NotificationChargeOrderInfoRequest",
+    "fields": [
+      {
+        "wire": "StartChargeSeq",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "ConnectorID",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "StartTime",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "EndTime",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "TotalPower",
+        "type": "BigDecimal",
+        "referenceType": "Double",
+        "default": "0.0"
+      },
+      {
+        "wire": "TotalElecMoney",
+        "type": "BigDecimal",
+        "referenceType": "Double",
+        "default": "0.0"
+      },
+      {
+        "wire": "TotalServiceMoney",
+        "type": "BigDecimal",
+        "referenceType": "Double",
+        "default": "0.0"
+      },
+      {
+        "wire": "TotalMoney",
+        "type": "BigDecimal",
+        "referenceType": "Double",
+        "default": "0.0"
+      },
+      {
+        "wire": "StopReason",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "SumPeriod",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "ChargeDetails",
+        "type": "List<ChargeDetail>",
+        "referenceType": "List<ChargeDetails>",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "QueryTokenRequest",
+    "referenceModel": "QueryTokenRequest",
+    "fields": [
+      {
+        "wire": "OperatorID",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "OperatorSecret",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "QueryStartChargeRequest",
+    "referenceModel": "QueryStartChargeRequest",
+    "fields": [
+      {
+        "wire": "StartChargeSeq",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "ConnectorID",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "QRCode",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "QueryGroundLockAuthRequest",
+    "referenceModel": "QueryGroundLockAuthRequest",
+    "fields": [
+      {
+        "wire": "StationIDs",
+        "type": "List<String>",
+        "referenceType": "List<String>",
+        "default": null
+      },
+      {
+        "wire": "Lat",
+        "type": "BigDecimal",
+        "referenceType": "Double",
+        "default": null
+      },
+      {
+        "wire": "Lng",
+        "type": "BigDecimal",
+        "referenceType": "Double",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "NotificationUserOrderInfoRequest",
+    "referenceModel": "NotificationUserOrderInfoRequest",
+    "fields": [
+      {
+        "wire": "StartChargeSeq",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "XJChargeSeq",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "StationName",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "ConnectorID",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "StartTime",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "EndTime",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "ChargeTime",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "TotalPower",
+        "type": "BigDecimal",
+        "referenceType": "Float",
+        "default": null
+      },
+      {
+        "wire": "TotalElecMoney",
+        "type": "BigDecimal",
+        "referenceType": "Float",
+        "default": null
+      },
+      {
+        "wire": "TotalSeviceMoney",
+        "type": "BigDecimal",
+        "referenceType": "Float",
+        "default": null
+      },
+      {
+        "wire": "TotalMoney",
+        "type": "BigDecimal",
+        "referenceType": "Float",
+        "default": null
+      },
+      {
+        "wire": "OrderStatus",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "RealPayMoney",
+        "type": "BigDecimal",
+        "referenceType": "Float",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "QueryStationStatusRequest",
+    "referenceModel": "QueryStationStatusRequest",
+    "fields": [
+      {
+        "wire": "StationIDs",
+        "type": "List<String>",
+        "referenceType": "List<String>",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "QueryUserOrderRequest",
+    "referenceModel": "QueryUserOrderRequest",
+    "fields": [
+      {
+        "wire": "OutUserId",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "StartTime",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "EndTime",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "PageNo",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": "1"
+      },
+      {
+        "wire": "PageSize",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": "10"
+      },
+      {
+        "wire": "OrderIds",
+        "type": "List<String>",
+        "referenceType": "List<String>",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "NotificationStartChargeResultRequest",
+    "referenceModel": "NotificationStartChargeRequest",
+    "fields": [
+      {
+        "wire": "StartChargeSeq",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "StartChargeSeqStat",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "ConnectorID",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "StartTime",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "IdentCode",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "ChargingSnapshot",
+    "referenceModel": "NotificationEquipChargeStatusRequest",
+    "fields": [
+      {
+        "wire": "StartChargeSeq",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "StartChargeSeqStat",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "ConnectorID",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "ConnectorStatus",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "CurrentA",
+        "type": "BigDecimal",
+        "referenceType": "Double",
+        "default": "0.0"
+      },
+      {
+        "wire": "CurrentB",
+        "type": "BigDecimal",
+        "referenceType": "Double",
+        "default": "0.0"
+      },
+      {
+        "wire": "CurrentC",
+        "type": "BigDecimal",
+        "referenceType": "Double",
+        "default": "0.0"
+      },
+      {
+        "wire": "VoltageA",
+        "type": "BigDecimal",
+        "referenceType": "Double",
+        "default": "0.0"
+      },
+      {
+        "wire": "VoltageB",
+        "type": "BigDecimal",
+        "referenceType": "Double",
+        "default": "0.0"
+      },
+      {
+        "wire": "VoltageC",
+        "type": "BigDecimal",
+        "referenceType": "Double",
+        "default": "0.0"
+      },
+      {
+        "wire": "Soc",
+        "type": "BigDecimal",
+        "referenceType": "Double",
+        "default": "0.0"
+      },
+      {
+        "wire": "StartTime",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "EndTime",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "TotalPower",
+        "type": "BigDecimal",
+        "referenceType": "Double",
+        "default": "0.0"
+      },
+      {
+        "wire": "ElecMoney",
+        "type": "BigDecimal",
+        "referenceType": "Double",
+        "default": "0.0"
+      },
+      {
+        "wire": "ServiceMoney",
+        "type": "BigDecimal",
+        "referenceType": "Double",
+        "default": "0.0"
+      },
+      {
+        "wire": "TotalMoney",
+        "type": "BigDecimal",
+        "referenceType": "Double",
+        "default": "0.0"
+      },
+      {
+        "wire": "SumPeriod",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "ChargeDetails",
+        "type": "List<ChargeDetail>",
+        "referenceType": "List<ChargeDetails>",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "QueryOrderDetailLinkRequest",
+    "referenceModel": "QueryOrderDetailLinkRequest",
+    "fields": [
+      {
+        "wire": "Mobile",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "OutUserId",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "StartChargeSeq",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "QueryDropLockRequest",
+    "referenceModel": "QueryDropLockRequest",
+    "fields": [
+      {
+        "wire": "StationID",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "LockNum",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "Lat",
+        "type": "BigDecimal",
+        "referenceType": "Double",
+        "default": null
+      },
+      {
+        "wire": "Lng",
+        "type": "BigDecimal",
+        "referenceType": "Double",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "QueryDropLockResultRequest",
+    "referenceModel": "QueryDropLockResultRequest",
+    "fields": [
+      {
+        "wire": "StationID",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "LockNum",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "QueryStationStatusResponse",
+    "referenceModel": "QueryStationStatusResponse",
+    "fields": [
+      {
+        "wire": "Total",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "StationStatusInfos",
+        "type": "List<StationStatusInfo>",
+        "referenceType": "List<StationStatusInfo>",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "QueryEquipBusinessPolicyResponse",
+    "referenceModel": "QueryEquipBusinessPolicyResponse",
+    "fields": [
+      {
+        "wire": "EquipBizSeq",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "ConnectorID",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "SuccStat",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "FailReason",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "SumPeriod",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "PolicyInfos",
+        "type": "List<PolicyInfo>",
+        "referenceType": "List<PolicyInfo>",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "NotificationStartChargeResultResponse",
+    "referenceModel": "NotificationStartChargeResponse",
+    "fields": [
+      {
+        "wire": "StartChargeSeq",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "SuccStat",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "FailReason",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "NotificationUserAuthResponse",
+    "referenceModel": "NotificationUserAuthResponse",
+    "fields": [
+      {
+        "wire": "CheckState",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "CheckMsg",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "NotificationEquipChargeStatusResponse",
+    "referenceModel": "NotificationEquipChargeStatusResponse",
+    "fields": [
+      {
+        "wire": "StartChargeSeq",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "SuccStat",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "QueryOrderDetailLinkResponse",
+    "referenceModel": "QueryOrderDetailLinkResponse",
+    "fields": [
+      {
+        "wire": "Link",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "QueryStopChargeResponse",
+    "referenceModel": "QueryStopChargeResponse",
+    "fields": [
+      {
+        "wire": "StartChargeSeq",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "StartChargeSeqStat",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "SuccStat",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "FailReason",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "QueryParkingFreeWaveResponse",
+    "referenceModel": "QueryParkingFreeWaveResponse",
+    "fields": [
+      {
+        "wire": "SuccStat",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "FailReasonMsg",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "QueryGroundLocksResponse",
+    "referenceModel": "QueryGroundLocksResponse",
+    "fields": [
+      {
+        "wire": "groundLocks",
+        "type": "List<GroundLock>",
+        "referenceType": "List<GroundLock>",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "QueryStationsInfoResponse",
+    "referenceModel": "QueryStationsInfoResponse",
+    "fields": [
+      {
+        "wire": "PageNo",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "PageCount",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "ItemSize",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "StationInfos",
+        "type": "List<StationInfo>",
+        "referenceType": "List<StationInfo>",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "QueryParkingStationResponse",
+    "referenceModel": "QueryParkingStationResponse",
+    "fields": [
+      {
+        "wire": "WaiverType",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "Duration",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "Note",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "QueryStationStatsResponse",
+    "referenceModel": "QueryStationStatsResponse",
+    "fields": [
+      {
+        "wire": "StationStats",
+        "type": "StationStats",
+        "referenceType": "StationStatsInfo",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "NotificationStopChargeResultResponse",
+    "referenceModel": "NotificationStopChargeResponse",
+    "fields": [
+      {
+        "wire": "StartChargeSeq",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "SuccStat",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "FailReason",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "QueryOpenLinkResponse",
+    "referenceModel": "QueryOpenLinkResponse",
+    "fields": [
+      {
+        "wire": "Link",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "QueryStartChargeResponse",
+    "referenceModel": "QueryStartChargeResponse",
+    "fields": [
+      {
+        "wire": "StartChargeSeq",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "StartChargeSeqStat",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "ConnectorID",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "SuccStat",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "FailReason",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "QueryEquipAuthResponse",
+    "referenceModel": "QueryEquipAuthResponse",
+    "fields": [
+      {
+        "wire": "OperatorID",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "EquipAuthSeq",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "ConnectorID",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "SuccStat",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "FailReason",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "ModifyParkingCarNumberResponse",
+    "referenceModel": "ModifyParkingCarNumberResponse",
+    "fields": [
+      {
+        "wire": "SuccStat",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "FailReasonMsg",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "NotificationUserOrderInfoResponse",
+    "referenceModel": "NotificationUserOrderInfoResponse",
+    "fields": [
+      {
+        "wire": "StartChargeSeq",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "ConnectorID",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "ConfirmResult",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "CheckChargeOrdersResponse",
+    "referenceModel": "CheckOrdersResponse",
+    "fields": [
+      {
+        "wire": "CheckOrderSeq",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "StartTime",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "EndTime",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "TotalDisputeOrder",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "TotalDisputePower",
+        "type": "BigDecimal",
+        "referenceType": "Double",
+        "default": "0.0"
+      },
+      {
+        "wire": "TotalDisputeMoney",
+        "type": "BigDecimal",
+        "referenceType": "Double",
+        "default": "0.0"
+      },
+      {
+        "wire": "DisputeOrders",
+        "type": "List<DisputeOrder>",
+        "referenceType": "List<DisputeOrder>",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "QueryGroundLockAuthResponse",
+    "referenceModel": "QueryGroundLockAuthResponse",
+    "fields": [
+      {
+        "wire": "LocksAuth",
+        "type": "List<GroundLockAuth>",
+        "referenceType": "List<GroundLockAuth>",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "QueryConfirmLinkResponse",
+    "referenceModel": "QueryConfirmLinkResponse",
+    "fields": [
+      {
+        "wire": "Link",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "QueryDropLockResponse",
+    "referenceModel": "QueryDropLockResponse",
+    "fields": [
+      {
+        "wire": "result",
+        "type": "Boolean",
+        "referenceType": "Boolean",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "QueryUserOrderResponse",
+    "referenceModel": "QueryUserOrderResponse",
+    "fields": [
+      {
+        "wire": "PageNo",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "PageSize",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "TotalPage",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "TotalCount",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "OrderInfoList",
+        "type": "List<OrderInfo>",
+        "referenceType": "List<OrderInfo>",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "NotificationChargeOrderInfoResponse",
+    "referenceModel": "NotificationChargeOrderInfoResponse",
+    "fields": [
+      {
+        "wire": "StartChargeSeq",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "ConnectorID",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "ConfirmResult",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "QueryEquipChargeStatusResponse",
+    "referenceModel": "QueryEquipChargeStatusResponse",
+    "fields": [
+      {
+        "wire": "StartChargeSeq",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "StartChargeSeqStat",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "ConnectorID",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "ConnectorStatus",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "CurrentA",
+        "type": "BigDecimal",
+        "referenceType": "Double",
+        "default": "0.0"
+      },
+      {
+        "wire": "CurrentB",
+        "type": "BigDecimal",
+        "referenceType": "Double",
+        "default": "0.0"
+      },
+      {
+        "wire": "CurrentC",
+        "type": "BigDecimal",
+        "referenceType": "Double",
+        "default": "0.0"
+      },
+      {
+        "wire": "VoltageA",
+        "type": "BigDecimal",
+        "referenceType": "Double",
+        "default": "0.0"
+      },
+      {
+        "wire": "VoltageB",
+        "type": "BigDecimal",
+        "referenceType": "Double",
+        "default": "0.0"
+      },
+      {
+        "wire": "VoltageC",
+        "type": "BigDecimal",
+        "referenceType": "Double",
+        "default": "0.0"
+      },
+      {
+        "wire": "Soc",
+        "type": "BigDecimal",
+        "referenceType": "Double",
+        "default": "0.0"
+      },
+      {
+        "wire": "StartTime",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "EndTime",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "TotalPower",
+        "type": "BigDecimal",
+        "referenceType": "Double",
+        "default": "0.0"
+      },
+      {
+        "wire": "ElectMoney",
+        "type": "BigDecimal",
+        "referenceType": "Double",
+        "default": "0.0"
+      },
+      {
+        "wire": "ServiceMoney",
+        "type": "BigDecimal",
+        "referenceType": "Double",
+        "default": "0.0"
+      },
+      {
+        "wire": "TotalMoney",
+        "type": "BigDecimal",
+        "referenceType": "Double",
+        "default": "0.0"
+      },
+      {
+        "wire": "SumPeriod",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "ChargeDetails",
+        "type": "List<ChargeDetail>",
+        "referenceType": "List<ChargeDetails>",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "QueryTokenResponse",
+    "referenceModel": "QueryTokenResponse",
+    "fields": [
+      {
+        "wire": "OperatorID",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "SuccStat",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "AccessToken",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "TokenAvailableTime",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "FailReason",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "NotificationStationStatusResponse",
+    "referenceModel": "NotificationStationStatusResponse",
+    "fields": [
+      {
+        "wire": "Status",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "QueryParkingFreeInfoResponse",
+    "referenceModel": "QueryParkingFreeInfoResponse",
+    "fields": [
+      {
+        "wire": "StartChargeSeq",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "Duration",
+        "type": "BigDecimal",
+        "referenceType": "Double",
+        "default": null
+      },
+      {
+        "wire": "QrCode",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "CarNumber",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "WaiverStatus",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      }
+    ]
+  },
+  {
+    "model": "QueryDropLockResultResponse",
+    "referenceModel": "QueryDropLockResultResponse",
+    "fields": [
+      {
+        "wire": "LockNum",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      },
+      {
+        "wire": "DropCode",
+        "type": "Integer",
+        "referenceType": "Integer",
+        "default": null
+      },
+      {
+        "wire": "DropInfo",
+        "type": "String",
+        "referenceType": "String",
+        "default": null
+      }
+    ]
+  }
+]

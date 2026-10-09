@@ -1,0 +1,150 @@
+{
+  "station-query-with-timestamp": {
+    "LastQueryTime": "2026-10-08 23:59:59",
+    "PageNo": 2,
+    "PageSize": 50
+  },
+  "station-with-all-optional-fields": {
+    "PageNo": 1,
+    "PageCount": 1,
+    "ItemSize": 1,
+    "StationInfos": [
+      {
+        "StationID": "00000000000000000001",
+        "OperatorID": "123456789",
+        "EquipmentOwnerID": "123456789",
+        "StationName": "示例充电站",
+        "CountryCode": "CN",
+        "AreaCode": "110101",
+        "Address": "公开测试地址",
+        "ServiceTel": "4000000000",
+        "StationType": 1,
+        "StationStatus": 50,
+        "ParkNums": 2,
+        "StationLng": 116.123456,
+        "StationLat": 39.123456,
+        "Construction": 4,
+        "BusineHours": "全天",
+        "SupportOrder": 0,
+        "EquipmentInfos": [
+          {
+            "EquipmentID": "00000000000000000000001",
+            "EquipmentType": 1,
+            "ConnectorInfos": [
+              {
+                "ConnectorID": "00000000000000000000000001",
+                "ConnectorType": 4,
+                "VoltageUpperLimits": 750,
+                "VoltageLowerLimits": 200,
+                "Current": 125,
+                "Power": 60.0,
+                "NationalStandard": 2,
+                "ConnectorName": "测试充电接口 01",
+                "ParkNo": "B2-0001"
+              }
+            ],
+            "Power": 60.0,
+            "ManufacturerID": "987654321",
+            "ManufacturerName": "示例设备制造商",
+            "EquipmentModel": "TEST-DC-60",
+            "ProductionDate": "2020-02-29",
+            "EquipmentLng": 116.123456,
+            "EquipmentLat": 39.123456,
+            "EquipmentName": "测试直流设备 01"
+          }
+        ],
+        "StationTel": "01000000000",
+        "SiteGuide": "地下二层，沿测试标识进入",
+        "Pictures": [
+          "https://example.invalid/station/front.png",
+          "https://example.invalid/station/map.png"
+        ],
+        "MatchCars": "国标车辆",
+        "ParkInfo": "B2 层",
+        "ElectricityFee": "以测试费率表为准",
+        "ServiceFee": "每千瓦时 0.5000 元",
+        "ParkFee": "测试停车说明",
+        "Payment": "1,2,3",
+        "Remark": "合成数据：引号 \" 和反斜杠 \\，emoji 🔌",
+        "HasParkingLock": 1,
+        "FreeParking": 1,
+        "SubPark": 1,
+        "DutyNum": 1,
+        "Wc": 1,
+        "Rainshed": 1,
+        "Lounge": 1,
+        "LightMeal": 1,
+        "Shop": 1,
+        "LimitFreeParking": 1
+      }
+    ]
+  },
+  "start-notification-with-ident-code": {
+    "StartChargeSeq": "123456789202610090000000001",
+    "ConnectorID": "00000000000000000000000001",
+    "StartChargeSeqStat": 2,
+    "StartTime": "2026-10-09 12:00:00",
+    "IdentCode": "public-test-ident-001"
+  },
+  "charging-snapshot-with-all-phases": {
+    "StartChargeSeq": "123456789202610090000000001",
+    "StartChargeSeqStat": 2,
+    "ConnectorID": "00000000000000000000000001",
+    "ConnectorStatus": 3,
+    "CurrentA": 10.1,
+    "CurrentB": 0,
+    "VoltageA": 220,
+    "Soc": 55,
+    "StartTime": "2026-10-09 12:00:00",
+    "EndTime": "2026-10-09 12:30:00",
+    "TotalPower": 2.25,
+    "ElecMoney": 0.28,
+    "ServiceMoney": 1.13,
+    "TotalMoney": 1.41,
+    "SumPeriod": 1,
+    "ChargeDetails": [
+      {
+        "DetailStartTime": "2026-10-09 12:00:00",
+        "DetailEndTime": "2026-10-09 12:30:00",
+        "ElecPrice": 0.1234,
+        "ServicePrice": 0.5,
+        "DetailPower": 2.25,
+        "DetailElecMoney": 0.28,
+        "DetailServiceMoney": 1.13
+      }
+    ],
+    "CurrentC": 10.3,
+    "VoltageB": 221.2,
+    "VoltageC": 222.3
+  },
+  "reconciliation-with-nonempty-disputes": {
+    "CheckOrderSeq": "123456789202610090000000001",
+    "StartTime": "2026-10-01 00:00:00",
+    "EndTime": "2026-10-09 23:59:59",
+    "TotalDisputeOrder": 2,
+    "TotalDisputePower": 3.5,
+    "TotalDisputeMoney": 2.25,
+    "DisputeOrders": [
+      {
+        "StartChargeSeq": "123456789202610090000000001",
+        "TotalPower": 2.25,
+        "TotalMoney": 1.41,
+        "DisputeReason": 1
+      },
+      {
+        "StartChargeSeq": "123456789202610090000000002",
+        "TotalPower": 1.25,
+        "TotalMoney": 0.84,
+        "DisputeReason": 99
+      }
+    ]
+  },
+  "operator-with-all-optional-fields": {
+    "OperatorID": "123456789",
+    "OperatorName": "示例运营商",
+    "OperatorTel1": "4000000000",
+    "OperatorTel2": "4000000001",
+    "OperatorRegAddress": "公开测试地址",
+    "OperatorNote": "合成运营商信息，仅用于协议测试"
+  }
+}

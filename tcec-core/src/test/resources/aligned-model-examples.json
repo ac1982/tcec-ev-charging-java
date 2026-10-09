@@ -1,0 +1,1023 @@
+[
+  {
+    "model": "ConnectorStatusInfo",
+    "referenceModel": "ConnectorStatusInfo",
+    "value": {
+      "ConnectorID": "00000000000000000000000001",
+      "Status": 0,
+      "ParkStatus": 10,
+      "LockStatus": 50
+    }
+  },
+  {
+    "model": "ConnectorStats",
+    "referenceModel": "ConnectorStatsInfo",
+    "value": {
+      "ConnectorID": "00000000000000000000000001",
+      "ConnectorElectricity": 1.25
+    }
+  },
+  {
+    "model": "GroundLockAuth",
+    "referenceModel": "GroundLockAuth",
+    "value": {
+      "StationID": "00000000000000000001",
+      "Auth": true
+    }
+  },
+  {
+    "model": "ChargeDetail",
+    "referenceModel": "ChargeDetails",
+    "value": {
+      "DetailStartTime": "2026-10-09 12:00:00",
+      "DetailEndTime": "2026-10-09 12:30:00",
+      "ElecPrice": 1.25,
+      "ServicePrice": 1.25,
+      "DetailPower": 1.25,
+      "DetailElecMoney": 1.25,
+      "DetailServiceMoney": 1.25
+    }
+  },
+  {
+    "model": "StationInfo",
+    "referenceModel": "StationInfo",
+    "value": {
+      "StationID": "00000000000000000001",
+      "OperatorID": "123456789",
+      "EquipmentOwnerID": "123456789",
+      "StationName": "Synthetic StationName",
+      "CountryCode": "CN",
+      "AreaCode": "110101",
+      "Address": "Synthetic Address",
+      "StationTel": "Synthetic StationTel",
+      "ServiceTel": "Synthetic ServiceTel",
+      "StationType": 1,
+      "StationStatus": 50,
+      "ParkNums": 1,
+      "StationLng": 1.25,
+      "StationLat": 1.25,
+      "SiteGuide": "Synthetic SiteGuide",
+      "Construction": 0,
+      "Pictures": [
+        "https://example.invalid/picture.png"
+      ],
+      "MatchCars": "Synthetic MatchCars",
+      "ParkInfo": "Synthetic ParkInfo",
+      "BusineHours": "Synthetic BusineHours",
+      "ElectricityFee": "Synthetic ElectricityFee",
+      "ServiceFee": "Synthetic ServiceFee",
+      "ParkFee": "Synthetic ParkFee",
+      "Payment": "Synthetic Payment",
+      "SupportOrder": 1,
+      "Remark": "Synthetic Remark",
+      "EquipmentInfos": [
+        {
+          "EquipmentID": "00000000000000000000001",
+          "ManufacturerID": "987654321",
+          "ManufacturerName": "Synthetic ManufacturerName",
+          "EquipmentModel": "Synthetic EquipmentModel",
+          "ProductionDate": "2020-02-29",
+          "EquipmentType": 1,
+          "ConnectorInfos": [
+            {
+              "ConnectorID": "00000000000000000000000001",
+              "ConnectorName": "Synthetic ConnectorName",
+              "ConnectorType": 4,
+              "VoltageUpperLimits": 750,
+              "VoltageLowerLimits": 200,
+              "Current": 125,
+              "Power": 1.25,
+              "ParkNo": "Synthetic ParkNo",
+              "NationalStandard": 2
+            }
+          ],
+          "EquipmentLng": 1.25,
+          "EquipmentLat": 1.25,
+          "Power": 1.25,
+          "EquipmentName": "Synthetic EquipmentName"
+        }
+      ],
+      "HasParkingLock": 1,
+      "FreeParking": 1,
+      "SubPark": 1,
+      "DutyNum": 1,
+      "Wc": 1,
+      "Rainshed": 1,
+      "Lounge": 1,
+      "LightMeal": 1,
+      "Shop": 1,
+      "LimitFreeParking": 1
+    }
+  },
+  {
+    "model": "GroundLock",
+    "referenceModel": "GroundLock",
+    "value": {
+      "LockNum": "LOCK-001",
+      "WorkplaceName": "Synthetic WorkplaceName",
+      "LockStatus": 50
+    }
+  },
+  {
+    "model": "OrderInfo",
+    "referenceModel": "OrderInfo",
+    "value": {
+      "StartChargeSeq": "123456789202610090000000001",
+      "XJChargeSeq": "synthetic-xj-order-001",
+      "StationName": "Synthetic StationName",
+      "ConnectorID": "00000000000000000000000001",
+      "StartTime": "2026-10-09 12:00:00",
+      "EndTime": "2026-10-09 12:30:00",
+      "ChargeTime": 1,
+      "TotalPower": 1.25,
+      "TotalElecMoney": 1.25,
+      "TotalSeviceMoney": 1.25,
+      "TotalMoney": 1.25,
+      "OrderStatus": 1,
+      "RealPayMoney": 1.25
+    }
+  },
+  {
+    "model": "StationStats",
+    "referenceModel": "StationStatsInfo",
+    "value": {
+      "StationID": "00000000000000000001",
+      "StartTime": "2026-10-01",
+      "EndTime": "2026-10-09",
+      "StationElectricity": 1.25,
+      "EquipmentStatsInfos": [
+        {
+          "EquipmentID": "00000000000000000000001",
+          "EquipmentElectricity": 1.25,
+          "ConnectorStatsInfos": [
+            {
+              "ConnectorID": "00000000000000000000000001",
+              "ConnectorElectricity": 1.25
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "model": "StationStatusInfo",
+    "referenceModel": "StationStatusInfo",
+    "value": {
+      "FullStationID": "12345678900000000000000000001",
+      "StationID": "00000000000000000001",
+      "ConnectorStatusInfos": [
+        {
+          "ConnectorID": "00000000000000000000000001",
+          "Status": 0,
+          "ParkStatus": 10,
+          "LockStatus": 50
+        }
+      ]
+    }
+  },
+  {
+    "model": "OperatorInfo",
+    "referenceModel": "OperatorInfo",
+    "value": {
+      "OperatorID": "123456789",
+      "OperatorName": "Synthetic OperatorName",
+      "OperatorTel1": "Synthetic OperatorTel1",
+      "OperatorTel2": "Synthetic OperatorTel2",
+      "OperatorRegAddress": "Synthetic OperatorRegAddress",
+      "OperatorNote": "Synthetic OperatorNote"
+    }
+  },
+  {
+    "model": "EquipmentInfo",
+    "referenceModel": "EquipmentInfo",
+    "value": {
+      "EquipmentID": "00000000000000000000001",
+      "ManufacturerID": "987654321",
+      "ManufacturerName": "Synthetic ManufacturerName",
+      "EquipmentModel": "Synthetic EquipmentModel",
+      "ProductionDate": "2020-02-29",
+      "EquipmentType": 1,
+      "ConnectorInfos": [
+        {
+          "ConnectorID": "00000000000000000000000001",
+          "ConnectorName": "Synthetic ConnectorName",
+          "ConnectorType": 4,
+          "VoltageUpperLimits": 750,
+          "VoltageLowerLimits": 200,
+          "Current": 125,
+          "Power": 1.25,
+          "ParkNo": "Synthetic ParkNo",
+          "NationalStandard": 2
+        }
+      ],
+      "EquipmentLng": 1.25,
+      "EquipmentLat": 1.25,
+      "Power": 1.25,
+      "EquipmentName": "Synthetic EquipmentName"
+    }
+  },
+  {
+    "model": "PolicyInfo",
+    "referenceModel": "PolicyInfo",
+    "value": {
+      "StartTime": "000000",
+      "ElecPrice": 1.25,
+      "ServicePrice": 1.25
+    }
+  },
+  {
+    "model": "EquipmentStats",
+    "referenceModel": "EquipmentStatsInfo",
+    "value": {
+      "EquipmentID": "00000000000000000000001",
+      "EquipmentElectricity": 1.25,
+      "ConnectorStatsInfos": [
+        {
+          "ConnectorID": "00000000000000000000000001",
+          "ConnectorElectricity": 1.25
+        }
+      ]
+    }
+  },
+  {
+    "model": "ReconciliationOrder",
+    "referenceModel": "ChargeOrder",
+    "value": {
+      "StartChargeSeq": "123456789202610090000000001",
+      "TotalPower": 1.25,
+      "TotalMoney": 1.25
+    }
+  },
+  {
+    "model": "ConnectorInfo",
+    "referenceModel": "ConnectorInfo",
+    "value": {
+      "ConnectorID": "00000000000000000000000001",
+      "ConnectorName": "Synthetic ConnectorName",
+      "ConnectorType": 4,
+      "VoltageUpperLimits": 750,
+      "VoltageLowerLimits": 200,
+      "Current": 125,
+      "Power": 1.25,
+      "ParkNo": "Synthetic ParkNo",
+      "NationalStandard": 2
+    }
+  },
+  {
+    "model": "DisputeOrder",
+    "referenceModel": "DisputeOrder",
+    "value": {
+      "StartChargeSeq": "123456789202610090000000001",
+      "TotalPower": 1.25,
+      "TotalMoney": 1.25,
+      "DisputeReason": 1
+    }
+  },
+  {
+    "model": "QueryOpenLinkRequest",
+    "referenceModel": "QueryOpenLinkRequest",
+    "value": {
+      "Mobile": "13800000000",
+      "OutUserId": "synthetic-user-001"
+    }
+  },
+  {
+    "model": "QueryGroundLocksRequest",
+    "referenceModel": "QueryGroundLocksRequest",
+    "value": {
+      "StationID": "00000000000000000001"
+    }
+  },
+  {
+    "model": "QueryParkingFreeInfoRequest",
+    "referenceModel": "QueryParkingFreeInfoRequest",
+    "value": {
+      "StartChargeSeq": "123456789202610090000000001",
+      "CarNumber": "TEST-001"
+    }
+  },
+  {
+    "model": "QueryConfirmLinkRequest",
+    "referenceModel": "QueryConfirmLinkRequest",
+    "value": {
+      "Mobile": "13800000000",
+      "OutUserId": "synthetic-user-001",
+      "QRCode": "synthetic-qr-code"
+    }
+  },
+  {
+    "model": "QueryStationsInfoRequest",
+    "referenceModel": "QueryStationsInfoRequest",
+    "value": {
+      "LastQueryTime": "2026-10-08 23:59:59",
+      "PageNo": 1,
+      "PageSize": 10
+    }
+  },
+  {
+    "model": "NotificationUserAuthRequest",
+    "referenceModel": "NotificationUserAuthRequest",
+    "value": {
+      "Mobile": "13800000000",
+      "OutUserId": "synthetic-user-001"
+    }
+  },
+  {
+    "model": "CheckChargeOrdersRequest",
+    "referenceModel": "CheckOrdersRequest",
+    "value": {
+      "CheckOrderSeq": "123456789202610090000000001",
+      "StartTime": "2026-10-01 00:00:00",
+      "EndTime": "2026-10-09 23:59:59",
+      "OrderCount": 1,
+      "TotalOrderPower": 2.25,
+      "TotalOrderMoney": 1.41,
+      "ChargeOrders": [
+        {
+          "StartChargeSeq": "123456789202610090000000001",
+          "TotalPower": 2.25,
+          "TotalMoney": 1.41
+        }
+      ]
+    }
+  },
+  {
+    "model": "QueryParkingStationRequest",
+    "referenceModel": "QueryParkingStationRequest",
+    "value": {
+      "StationID": "00000000000000000001"
+    }
+  },
+  {
+    "model": "NotificationStationStatusRequest",
+    "referenceModel": "NotificationStationStatusRequest",
+    "value": {
+      "ConnectorStatusInfo": {
+        "ConnectorID": "00000000000000000000000001",
+        "Status": 3,
+        "ParkStatus": 10,
+        "LockStatus": 50
+      }
+    }
+  },
+  {
+    "model": "QueryParkingFreeWaveRequest",
+    "referenceModel": "QueryParkingFreeWaveRequest",
+    "value": {
+      "StartChargeSeq": "123456789202610090000000001",
+      "CarNumber": "TEST-001"
+    }
+  },
+  {
+    "model": "ModifyParkingCarNumberRequest",
+    "referenceModel": "ModifyParkingCarNumberRequest",
+    "value": {
+      "StartChargeSeq": "123456789202610090000000001",
+      "CarNumber": "TEST-001"
+    }
+  },
+  {
+    "model": "QueryStationStatsRequest",
+    "referenceModel": "QueryStationStatsRequest",
+    "value": {
+      "StationID": "00000000000000000001",
+      "StartTime": "2026-10-01",
+      "EndTime": "2026-10-09"
+    }
+  },
+  {
+    "model": "QueryEquipChargeStatusRequest",
+    "referenceModel": "QueryEquipChargeStatusRequest",
+    "value": {
+      "StartChargeSeq": "123456789202610090000000001"
+    }
+  },
+  {
+    "model": "QueryEquipBusinessPolicyRequest",
+    "referenceModel": "QueryEquipBusinessPolicyRequest",
+    "value": {
+      "EquipBizSeq": "123456789202610090000000001",
+      "ConnectorID": "00000000000000000000000001"
+    }
+  },
+  {
+    "model": "QueryEquipAuthRequest",
+    "referenceModel": "QueryEquipAuthRequest",
+    "value": {
+      "EquipAuthSeq": "123456789202610090000000001",
+      "ConnectorID": "00000000000000000000000001"
+    }
+  },
+  {
+    "model": "QueryStopChargeRequest",
+    "referenceModel": "QueryStopChargeRequest",
+    "value": {
+      "StartChargeSeq": "123456789202610090000000001",
+      "ConnectorID": "00000000000000000000000001"
+    }
+  },
+  {
+    "model": "NotificationStopChargeResultRequest",
+    "referenceModel": "NotificationStopChargeRequest",
+    "value": {
+      "StartChargeSeq": "123456789202610090000000001",
+      "StartChargeSeqStat": 4,
+      "ConnectorID": "00000000000000000000000001",
+      "SuccStat": 0,
+      "FailReason": 0
+    }
+  },
+  {
+    "model": "ChargeOrderInfo",
+    "referenceModel": "NotificationChargeOrderInfoRequest",
+    "value": {
+      "StartChargeSeq": "123456789202610090000000001",
+      "ConnectorID": "00000000000000000000000001",
+      "StartTime": "2026-10-09 12:00:00",
+      "EndTime": "2026-10-09 12:30:00",
+      "TotalPower": 2.25,
+      "TotalElecMoney": 0.28,
+      "TotalServiceMoney": 1.13,
+      "TotalMoney": 1.41,
+      "StopReason": 0,
+      "SumPeriod": 1,
+      "ChargeDetails": [
+        {
+          "DetailStartTime": "2026-10-09 12:00:00",
+          "DetailEndTime": "2026-10-09 12:30:00",
+          "ElecPrice": 0.1234,
+          "ServicePrice": 0.5,
+          "DetailPower": 2.25,
+          "DetailElecMoney": 0.28,
+          "DetailServiceMoney": 1.13
+        }
+      ]
+    }
+  },
+  {
+    "model": "QueryTokenRequest",
+    "referenceModel": "QueryTokenRequest",
+    "value": {
+      "OperatorID": "123456789",
+      "OperatorSecret": "public-example-secret"
+    }
+  },
+  {
+    "model": "QueryStartChargeRequest",
+    "referenceModel": "QueryStartChargeRequest",
+    "value": {
+      "StartChargeSeq": "123456789202610090000000001",
+      "ConnectorID": "00000000000000000000000001",
+      "QRCode": "synthetic-qr"
+    }
+  },
+  {
+    "model": "QueryGroundLockAuthRequest",
+    "referenceModel": "QueryGroundLockAuthRequest",
+    "value": {
+      "StationIDs": [
+        "00000000000000000001"
+      ],
+      "Lat": 1.25,
+      "Lng": 1.25
+    }
+  },
+  {
+    "model": "NotificationUserOrderInfoRequest",
+    "referenceModel": "NotificationUserOrderInfoRequest",
+    "value": {
+      "StartChargeSeq": "123456789202610090000000001",
+      "XJChargeSeq": "synthetic-xj-order-001",
+      "StationName": "Synthetic StationName",
+      "ConnectorID": "00000000000000000000000001",
+      "StartTime": "2026-10-09 12:00:00",
+      "EndTime": "2026-10-09 12:30:00",
+      "ChargeTime": 1,
+      "TotalPower": 1.25,
+      "TotalElecMoney": 1.25,
+      "TotalSeviceMoney": 1.25,
+      "TotalMoney": 1.25,
+      "OrderStatus": 1,
+      "RealPayMoney": 1.25
+    }
+  },
+  {
+    "model": "QueryStationStatusRequest",
+    "referenceModel": "QueryStationStatusRequest",
+    "value": {
+      "StationIDs": [
+        "00000000000000000001"
+      ]
+    }
+  },
+  {
+    "model": "QueryUserOrderRequest",
+    "referenceModel": "QueryUserOrderRequest",
+    "value": {
+      "OutUserId": "synthetic-user-001",
+      "StartTime": "2026-10-09 12:00:00",
+      "EndTime": "2026-10-09 12:30:00",
+      "PageNo": 1,
+      "PageSize": 1,
+      "OrderIds": [
+        "123456789202610090000000001"
+      ]
+    }
+  },
+  {
+    "model": "NotificationStartChargeResultRequest",
+    "referenceModel": "NotificationStartChargeRequest",
+    "value": {
+      "StartChargeSeq": "123456789202610090000000001",
+      "StartChargeSeqStat": 2,
+      "ConnectorID": "00000000000000000000000001",
+      "StartTime": "2026-10-09 12:00:00",
+      "IdentCode": "public-test-ident-001"
+    }
+  },
+  {
+    "model": "ChargingSnapshot",
+    "referenceModel": "NotificationEquipChargeStatusRequest",
+    "value": {
+      "StartChargeSeq": "123456789202610090000000001",
+      "StartChargeSeqStat": 2,
+      "ConnectorID": "00000000000000000000000001",
+      "ConnectorStatus": 3,
+      "CurrentA": 10.1,
+      "CurrentB": 0,
+      "CurrentC": 1.25,
+      "VoltageA": 220,
+      "VoltageB": 1.25,
+      "VoltageC": 1.25,
+      "Soc": 55,
+      "StartTime": "2026-10-09 12:00:00",
+      "EndTime": "2026-10-09 12:30:00",
+      "TotalPower": 2.25,
+      "ElecMoney": 0.28,
+      "ServiceMoney": 1.13,
+      "TotalMoney": 1.41,
+      "SumPeriod": 1,
+      "ChargeDetails": [
+        {
+          "DetailStartTime": "2026-10-09 12:00:00",
+          "DetailEndTime": "2026-10-09 12:30:00",
+          "ElecPrice": 0.1234,
+          "ServicePrice": 0.5,
+          "DetailPower": 2.25,
+          "DetailElecMoney": 0.28,
+          "DetailServiceMoney": 1.13
+        }
+      ]
+    }
+  },
+  {
+    "model": "QueryOrderDetailLinkRequest",
+    "referenceModel": "QueryOrderDetailLinkRequest",
+    "value": {
+      "Mobile": "13800000000",
+      "OutUserId": "synthetic-user-001",
+      "StartChargeSeq": "123456789202610090000000001"
+    }
+  },
+  {
+    "model": "QueryDropLockRequest",
+    "referenceModel": "QueryDropLockRequest",
+    "value": {
+      "StationID": "00000000000000000001",
+      "LockNum": "LOCK-001",
+      "Lat": 1.25,
+      "Lng": 1.25
+    }
+  },
+  {
+    "model": "QueryDropLockResultRequest",
+    "referenceModel": "QueryDropLockResultRequest",
+    "value": {
+      "StationID": "00000000000000000001",
+      "LockNum": "LOCK-001"
+    }
+  },
+  {
+    "model": "QueryStationStatusResponse",
+    "referenceModel": "QueryStationStatusResponse",
+    "value": {
+      "Total": "1",
+      "StationStatusInfos": [
+        {
+          "FullStationID": "12345678900000000000000000001",
+          "StationID": "00000000000000000001",
+          "ConnectorStatusInfos": [
+            {
+              "ConnectorID": "00000000000000000000000001",
+              "Status": 3,
+              "ParkStatus": 10,
+              "LockStatus": 50
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "model": "QueryEquipBusinessPolicyResponse",
+    "referenceModel": "QueryEquipBusinessPolicyResponse",
+    "value": {
+      "EquipBizSeq": "123456789202610090000000001",
+      "ConnectorID": "00000000000000000000000001",
+      "SuccStat": 0,
+      "FailReason": 0,
+      "SumPeriod": 1,
+      "PolicyInfos": [
+        {
+          "StartTime": "000000",
+          "ElecPrice": 0.1234,
+          "ServicePrice": 0.5
+        }
+      ]
+    }
+  },
+  {
+    "model": "NotificationStartChargeResultResponse",
+    "referenceModel": "NotificationStartChargeResponse",
+    "value": {
+      "StartChargeSeq": "123456789202610090000000001",
+      "SuccStat": 0,
+      "FailReason": 0
+    }
+  },
+  {
+    "model": "NotificationUserAuthResponse",
+    "referenceModel": "NotificationUserAuthResponse",
+    "value": {
+      "CheckState": 0,
+      "CheckMsg": "Synthetic CheckMsg"
+    }
+  },
+  {
+    "model": "NotificationEquipChargeStatusResponse",
+    "referenceModel": "NotificationEquipChargeStatusResponse",
+    "value": {
+      "StartChargeSeq": "123456789202610090000000001",
+      "SuccStat": 0
+    }
+  },
+  {
+    "model": "QueryOrderDetailLinkResponse",
+    "referenceModel": "QueryOrderDetailLinkResponse",
+    "value": {
+      "Link": "https://example.invalid/synthetic-link"
+    }
+  },
+  {
+    "model": "QueryStopChargeResponse",
+    "referenceModel": "QueryStopChargeResponse",
+    "value": {
+      "StartChargeSeq": "123456789202610090000000001",
+      "StartChargeSeqStat": 3,
+      "SuccStat": 0,
+      "FailReason": 0
+    }
+  },
+  {
+    "model": "QueryParkingFreeWaveResponse",
+    "referenceModel": "QueryParkingFreeWaveResponse",
+    "value": {
+      "SuccStat": 0,
+      "FailReasonMsg": "Synthetic FailReasonMsg"
+    }
+  },
+  {
+    "model": "QueryGroundLocksResponse",
+    "referenceModel": "QueryGroundLocksResponse",
+    "value": {
+      "groundLocks": [
+        {
+          "LockNum": "LOCK-001",
+          "WorkplaceName": "Synthetic WorkplaceName",
+          "LockStatus": 50
+        }
+      ]
+    }
+  },
+  {
+    "model": "QueryStationsInfoResponse",
+    "referenceModel": "QueryStationsInfoResponse",
+    "value": {
+      "PageNo": 1,
+      "PageCount": 1,
+      "ItemSize": 1,
+      "StationInfos": [
+        {
+          "StationID": "00000000000000000001",
+          "OperatorID": "123456789",
+          "EquipmentOwnerID": "123456789",
+          "StationName": "示例充电站",
+          "CountryCode": "CN",
+          "AreaCode": "110101",
+          "Address": "公开测试地址",
+          "StationTel": "Synthetic StationTel",
+          "ServiceTel": "4000000000",
+          "StationType": 1,
+          "StationStatus": 50,
+          "ParkNums": 2,
+          "StationLng": 116.123456,
+          "StationLat": 39.123456,
+          "SiteGuide": "Synthetic SiteGuide",
+          "Construction": 4,
+          "Pictures": [
+            "https://example.invalid/picture.png"
+          ],
+          "MatchCars": "Synthetic MatchCars",
+          "ParkInfo": "Synthetic ParkInfo",
+          "BusineHours": "全天",
+          "ElectricityFee": "Synthetic ElectricityFee",
+          "ServiceFee": "Synthetic ServiceFee",
+          "ParkFee": "Synthetic ParkFee",
+          "Payment": "Synthetic Payment",
+          "SupportOrder": 0,
+          "Remark": "Synthetic Remark",
+          "EquipmentInfos": [
+            {
+              "EquipmentID": "00000000000000000000001",
+              "ManufacturerID": "987654321",
+              "ManufacturerName": "Synthetic ManufacturerName",
+              "EquipmentModel": "Synthetic EquipmentModel",
+              "ProductionDate": "2020-02-29",
+              "EquipmentType": 1,
+              "ConnectorInfos": [
+                {
+                  "ConnectorID": "00000000000000000000000001",
+                  "ConnectorName": "Synthetic ConnectorName",
+                  "ConnectorType": 4,
+                  "VoltageUpperLimits": 750,
+                  "VoltageLowerLimits": 200,
+                  "Current": 125,
+                  "Power": 60.0,
+                  "ParkNo": "Synthetic ParkNo",
+                  "NationalStandard": 2
+                }
+              ],
+              "EquipmentLng": 1.25,
+              "EquipmentLat": 1.25,
+              "Power": 60.0,
+              "EquipmentName": "Synthetic EquipmentName"
+            }
+          ],
+          "HasParkingLock": 1,
+          "FreeParking": 1,
+          "SubPark": 1,
+          "DutyNum": 1,
+          "Wc": 1,
+          "Rainshed": 1,
+          "Lounge": 1,
+          "LightMeal": 1,
+          "Shop": 1,
+          "LimitFreeParking": 1
+        }
+      ]
+    }
+  },
+  {
+    "model": "QueryParkingStationResponse",
+    "referenceModel": "QueryParkingStationResponse",
+    "value": {
+      "WaiverType": 1,
+      "Duration": 1,
+      "Note": "Synthetic Note"
+    }
+  },
+  {
+    "model": "QueryStationStatsResponse",
+    "referenceModel": "QueryStationStatsResponse",
+    "value": {
+      "StationStats": {
+        "StationID": "00000000000000000001",
+        "StartTime": "2026-10-01",
+        "EndTime": "2026-10-09",
+        "StationElectricity": 2.2,
+        "EquipmentStatsInfos": [
+          {
+            "EquipmentID": "00000000000000000000001",
+            "EquipmentElectricity": 2.2,
+            "ConnectorStatsInfos": [
+              {
+                "ConnectorID": "00000000000000000000000001",
+                "ConnectorElectricity": 2.2
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "model": "NotificationStopChargeResultResponse",
+    "referenceModel": "NotificationStopChargeResponse",
+    "value": {
+      "StartChargeSeq": "123456789202610090000000001",
+      "SuccStat": 0,
+      "FailReason": 0
+    }
+  },
+  {
+    "model": "QueryOpenLinkResponse",
+    "referenceModel": "QueryOpenLinkResponse",
+    "value": {
+      "Link": "https://example.invalid/synthetic-link"
+    }
+  },
+  {
+    "model": "QueryStartChargeResponse",
+    "referenceModel": "QueryStartChargeResponse",
+    "value": {
+      "StartChargeSeq": "123456789202610090000000001",
+      "StartChargeSeqStat": 1,
+      "ConnectorID": "00000000000000000000000001",
+      "SuccStat": 0,
+      "FailReason": 0
+    }
+  },
+  {
+    "model": "QueryEquipAuthResponse",
+    "referenceModel": "QueryEquipAuthResponse",
+    "value": {
+      "OperatorID": "123456789",
+      "EquipAuthSeq": "123456789202610090000000001",
+      "ConnectorID": "00000000000000000000000001",
+      "SuccStat": 0,
+      "FailReason": 0
+    }
+  },
+  {
+    "model": "ModifyParkingCarNumberResponse",
+    "referenceModel": "ModifyParkingCarNumberResponse",
+    "value": {
+      "SuccStat": 0,
+      "FailReasonMsg": "Synthetic FailReasonMsg"
+    }
+  },
+  {
+    "model": "NotificationUserOrderInfoResponse",
+    "referenceModel": "NotificationUserOrderInfoResponse",
+    "value": {
+      "StartChargeSeq": "123456789202610090000000001",
+      "ConnectorID": "00000000000000000000000001",
+      "ConfirmResult": 0
+    }
+  },
+  {
+    "model": "CheckChargeOrdersResponse",
+    "referenceModel": "CheckOrdersResponse",
+    "value": {
+      "CheckOrderSeq": "123456789202610090000000001",
+      "StartTime": "2026-10-01 00:00:00",
+      "EndTime": "2026-10-09 23:59:59",
+      "TotalDisputeOrder": 1,
+      "TotalDisputePower": 0,
+      "TotalDisputeMoney": 0,
+      "DisputeOrders": [
+        {
+          "StartChargeSeq": "123456789202610090000000001",
+          "TotalPower": 1.25,
+          "TotalMoney": 1.25,
+          "DisputeReason": 1
+        }
+      ]
+    }
+  },
+  {
+    "model": "QueryGroundLockAuthResponse",
+    "referenceModel": "QueryGroundLockAuthResponse",
+    "value": {
+      "LocksAuth": [
+        {
+          "StationID": "00000000000000000001",
+          "Auth": true
+        }
+      ]
+    }
+  },
+  {
+    "model": "QueryConfirmLinkResponse",
+    "referenceModel": "QueryConfirmLinkResponse",
+    "value": {
+      "Link": "https://example.invalid/synthetic-link"
+    }
+  },
+  {
+    "model": "QueryDropLockResponse",
+    "referenceModel": "QueryDropLockResponse",
+    "value": {
+      "result": true
+    }
+  },
+  {
+    "model": "QueryUserOrderResponse",
+    "referenceModel": "QueryUserOrderResponse",
+    "value": {
+      "PageNo": 1,
+      "PageSize": 1,
+      "TotalPage": 1,
+      "TotalCount": 1,
+      "OrderInfoList": [
+        {
+          "StartChargeSeq": "123456789202610090000000001",
+          "XJChargeSeq": "synthetic-xj-order-001",
+          "StationName": "Synthetic StationName",
+          "ConnectorID": "00000000000000000000000001",
+          "StartTime": "2026-10-09 12:00:00",
+          "EndTime": "2026-10-09 12:30:00",
+          "ChargeTime": 1,
+          "TotalPower": 1.25,
+          "TotalElecMoney": 1.25,
+          "TotalSeviceMoney": 1.25,
+          "TotalMoney": 1.25,
+          "OrderStatus": 1,
+          "RealPayMoney": 1.25
+        }
+      ]
+    }
+  },
+  {
+    "model": "NotificationChargeOrderInfoResponse",
+    "referenceModel": "NotificationChargeOrderInfoResponse",
+    "value": {
+      "StartChargeSeq": "123456789202610090000000001",
+      "ConnectorID": "00000000000000000000000001",
+      "ConfirmResult": 0
+    }
+  },
+  {
+    "model": "QueryEquipChargeStatusResponse",
+    "referenceModel": "QueryEquipChargeStatusResponse",
+    "value": {
+      "StartChargeSeq": "123456789202610090000000001",
+      "StartChargeSeqStat": 2,
+      "ConnectorID": "00000000000000000000000001",
+      "ConnectorStatus": 3,
+      "CurrentA": 10.1,
+      "CurrentB": 0,
+      "CurrentC": 1.25,
+      "VoltageA": 220,
+      "VoltageB": 1.25,
+      "VoltageC": 1.25,
+      "Soc": 55,
+      "StartTime": "2026-10-09 12:00:00",
+      "EndTime": "2026-10-09 12:30:00",
+      "TotalPower": 2.25,
+      "ElectMoney": 0.28,
+      "ServiceMoney": 1.13,
+      "TotalMoney": 1.41,
+      "SumPeriod": 1,
+      "ChargeDetails": [
+        {
+          "DetailStartTime": "2026-10-09 12:00:00",
+          "DetailEndTime": "2026-10-09 12:30:00",
+          "ElecPrice": 0.1234,
+          "ServicePrice": 0.5,
+          "DetailPower": 2.25,
+          "DetailElecMoney": 0.28,
+          "DetailServiceMoney": 1.13
+        }
+      ]
+    }
+  },
+  {
+    "model": "QueryTokenResponse",
+    "referenceModel": "QueryTokenResponse",
+    "value": {
+      "OperatorID": "123456789",
+      "SuccStat": 0,
+      "AccessToken": "public-example-token",
+      "TokenAvailableTime": 7200,
+      "FailReason": 0
+    }
+  },
+  {
+    "model": "NotificationStationStatusResponse",
+    "referenceModel": "NotificationStationStatusResponse",
+    "value": {
+      "Status": 0
+    }
+  },
+  {
+    "model": "QueryParkingFreeInfoResponse",
+    "referenceModel": "QueryParkingFreeInfoResponse",
+    "value": {
+      "StartChargeSeq": "123456789202610090000000001",
+      "Duration": 1.25,
+      "QrCode": "https://example.invalid/parking-code",
+      "CarNumber": "TEST-001",
+      "WaiverStatus": 1
+    }
+  },
+  {
+    "model": "QueryDropLockResultResponse",
+    "referenceModel": "QueryDropLockResultResponse",
+    "value": {
+      "LockNum": "LOCK-001",
+      "DropCode": 0,
+      "DropInfo": "Synthetic DropInfo"
+    }
+  }
+]

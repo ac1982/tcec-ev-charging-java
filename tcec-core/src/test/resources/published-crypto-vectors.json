@@ -1,0 +1,57 @@
+[
+  {
+    "id": "xiaojie-query-token-request",
+    "provenance": "Xiaojie H5 server documentation 11/14, sections 2.3.3 and 2.3.5",
+    "source": "https://open-energy.xiaojukeji.com/home/document/11/14",
+    "dataSecret": "1234567890abcdef",
+    "dataSecretIV": "1234567890abcdef",
+    "sigSecret": "1234567890abcdef",
+    "envelope": {
+      "OperatorID": "123456789",
+      "Data": "mYvffpNoFf4E/ZTC1tOw41TC5OlkEobfAYCm5N8hEusaLUaUIqOrXtdbMrSck0DSmfM7mRuOGMoCQzH0nWPGuw==",
+      "TimeStamp": "20180120165755",
+      "Seq": "0001",
+      "Sig": "D2D584A14F3F284445DF85D0E8C0697C"
+    },
+    "plaintext": "{\"OperatorID\":\"123456789\",\n\"OperatorSecret\":\"1234567890abcdef\"}",
+    "verifiedBy": [
+      "Python standard-library HMAC-MD5",
+      "OpenSSL HMAC-MD5",
+      "OpenSSL AES-128-CBC decrypt"
+    ]
+  },
+  {
+    "id": "xiaojie-query-token-response",
+    "provenance": "Xiaojie H5 server documentation 11/14, sections 2.3.3 and 2.3.5",
+    "source": "https://open-energy.xiaojukeji.com/home/document/11/14",
+    "dataSecret": "1234567890abcdef",
+    "dataSecretIV": "1234567890abcdef",
+    "sigSecret": "1234567890abcdef",
+    "envelope": {
+      "Ret": 0,
+      "Msg": "",
+      "Data": "uxeKP0ezR5yL8xSg4/ZCDh/N91/u86NXFxd2DrwZVW8zCPYcpl59Twz/yQZ3RaO4rDDrGmkvQignmNEJ+k4PGxdmIC+4fpJ8rU6osSobY+AeA0uueuQ5+eQiWBL6p6v5XMMm91brtK8yfFELYUWQzVcxABnAwK/+dyxtUhqLIxUpkwTEU/4ktN40df9IzzlLO5uvUknPGYu9yL0pp5w9vdRxmA1RiiTDNCysz6klr9bunGV3VJa2qpLcgeZMf/oG",
+      "Sig": "58E52010C7DEE87FE183B0AFA5B2BE30"
+    },
+    "plaintext": "{\r\n  \"OperatorID\": \"123456789\",\r\n  \"SuccStat\": 0,\r\n  \"AccessToken\": \"kVnStIRknCCOBdXgJrmu8rb3pcccifKW2NcQrysKKIzb7iQBxkkjeq3WoGdjgrIL\",\r\n  \"TokenAvailableTime\": 7200,\r\n  \"FailReason\": 0\r\n}",
+    "verifiedBy": [
+      "Python standard-library HMAC-MD5",
+      "OpenSSL HMAC-MD5",
+      "OpenSSL AES-128-CBC decrypt"
+    ]
+  },
+  {
+    "id": "cec2016-appendix-c3",
+    "provenance": "CEC part4 Appendix C.3, independently reproduced by Xiaojie 11/14 section 4.3.3",
+    "source": "https://open-energy.xiaojukeji.com/home/document/11/14",
+    "sigSecret": "1234567890abcdef",
+    "envelope": {
+      "OperatorID": "123456789",
+      "Data": "il7B0BSEjFdzpyKzfOFpvg/Se1CP802RItKYFPfSLRxJ3jf0bVl9hvYOEktPAYW2nd7S8MBcyHYyacHKbISq5iTmDzG+ivnR+SZJv3USNTYVMz9rCQVSxd0cLlqsJauko79NnwQJbzDTyLooYoIwz75qBOH2/xOMirpeEqRJrF/EQjWekJmGk9RtboXePu2rka+Xm51syBPhiXJAq0GfbfaFu9tNqs/e2Vjja/ltE1M0lqvxfXQ6da6HrThsm5id4ClZFIi0acRfrsPLRixS/IQYtksxghvJwbqOsbIsITail9Ayy4tKcogeEZiOO+4Ed264NSKmk7l3wKwJLAFjCFogBx8GE3OBz4pqcAn/ydA=",
+      "TimeStamp": "20160729142400",
+      "Seq": "0001",
+      "Sig": "745166E8C43C84D37FFEC0F529C4136F"
+    },
+    "note": "Plaintext example has trailing comma and is invalid strict JSON; use as raw crypto-only fixture."
+  }
+]
