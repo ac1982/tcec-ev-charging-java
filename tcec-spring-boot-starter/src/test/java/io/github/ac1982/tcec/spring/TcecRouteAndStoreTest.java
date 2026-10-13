@@ -184,4 +184,30 @@ class TcecRouteAndStoreTest {
                 });
     }
 
+    @Test void failedHandlerReleasesReplayClaimSoTheIdenticalRetrySucceeds() {
+        AtomicInteger calls = new AtomicInteger();
+        enabled.withBean("flakyHandler", TcecEndpointHandler.class, () -> TcecEndpointHandler.of(ENDPOINT, (value, context) -> {
+            if (calls.incrementAndGet() == 1) throw new IllegalStateException("database unavailable");
+            return value;
+        })).run(context -> {
+            MockMvc mvc = mvc(context);
+            String token = token(context.getBean(TokenStore.class));
+            var envelope = CODEC.encodeRequest(new Payload("ok"), "20261009160000", "0001");
+            assertEquals(500, ret(send(mvc, ENDPOINT.path(), envelope, token)));
+            assertEquals(0, ret(send(mvc, ENDPOINT.path(), envelope, token)), "retry of a failed request must not be a replay");
+            assertEquals(4003, ret(send(mvc, ENDPOINT.path(), envelope, token)), "completed request stays claimed");
+            assertEquals(2, calls.get());
+        });
+    }
+
+    @Test void deterministicPayloadRejectionKeepsTheReplayClaim() {
+        enabled.withBean("locksHandler", TcecEndpointHandler.class, () -> TcecEndpointHandler.of(Endpoints.QUERY_GROUND_LOCKS,
+                (value, context) -> new io.github.ac1982.tcec.model.QueryGroundLocksResponse())).run(context -> {
+            MockMvc mvc = mvc(context);
+            String token = token(context.getBean(TokenStore.class));
+            var envelope = CODEC.encodeRequest(new io.github.ac1982.tcec.model.QueryGroundLocksRequest(null), "20261009160000", "0001");
+            assertEquals(4004, ret(send(mvc, "evcs/sdk/query_ground_locks", envelope, token)));
+            assertEquals(4003, ret(send(mvc, "evcs/sdk/query_ground_locks", envelope, token)));
+        });
+    }
 }

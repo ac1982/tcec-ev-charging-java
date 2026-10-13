@@ -294,4 +294,20 @@ class RedisSecurityStoresIT {
         }
     }
     @FunctionalInterface private interface IndexedCall<T> { T call(int index) throws Exception; }
+
+    @Test void releaseDeletesOnlyTheNamedClaimAndReadmitsIt() throws Exception {
+        String namespace = namespace();
+        var one = new RedisReplayStore(first, namespace);
+        var two = new RedisReplayStore(second, namespace);
+        Instant expiry = Instant.now().plusSeconds(10);
+        assertTrue(one.claim("op", "ts", "failed", expiry));
+        assertTrue(one.claim("op", "ts", "kept", expiry));
+        two.release("op", "ts", "failed");
+        two.release("op", "ts", "absent");
+        assertTrue(two.claim("op", "ts", "failed", expiry));
+        assertFalse(one.claim("op", "ts", "kept", expiry));
+        try (var unavailable = client(unusedPort())) {
+            assertDoesNotThrow(() -> new RedisReplayStore(unavailable, namespace).release("op", "ts", "failed"));
+        }
+    }
 }

@@ -175,4 +175,21 @@ class InMemoryReplayStoreTest {
         field.setAccessible(true);
         return ((Collection<?>) field.get(store)).size();
     }
+
+    @Test void releaseReadmitsTheSameClaimAndStaysBoundedAcrossCycles() {
+        var clock = new MutableClock();
+        var store = new InMemoryReplayStore(clock, 2);
+        Instant expiry = START.plusSeconds(60);
+        assertTrue(claim(store, "failed", expiry));
+        assertFalse(claim(store, "failed", expiry));
+        for (int i = 0; i < 1000; i++) {
+            store.release("123456789", "timestamp", "failed");
+            assertTrue(claim(store, "failed", expiry));
+        }
+        store.release("123456789", "timestamp", "absent");
+        assertTrue(claim(store, "other", expiry));
+        assertFalse(claim(store, "third", expiry), "release/claim cycles must not leak capacity");
+        clock.now.set(expiry);
+        assertTrue(claim(store, "third", START.plusSeconds(120)));
+    }
 }

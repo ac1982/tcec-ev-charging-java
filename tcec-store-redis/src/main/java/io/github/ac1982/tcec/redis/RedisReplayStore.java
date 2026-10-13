@@ -66,4 +66,16 @@ public final class RedisReplayStore implements ReplayStore {
             return false;
         }
     }
+
+    /** Deletes an admitted claim after a failed business call. Errors keep the claim until it expires. */
+    @Override
+    public void release(String operatorId, String timeStamp, String requestFingerprint) {
+        if (!RedisKeys.bounded(operatorId, 256) || !RedisKeys.bounded(timeStamp, 64)
+                || !RedisKeys.bounded(requestFingerprint, 256)) return;
+        try {
+            redis.del(RedisKeys.key(namespace, "replay", operatorId, timeStamp, requestFingerprint));
+        } catch (JedisException failure) {
+            // Fail closed: a kept claim only blocks an identical retry until it expires.
+        }
+    }
 }

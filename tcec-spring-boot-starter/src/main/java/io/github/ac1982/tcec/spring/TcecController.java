@@ -110,7 +110,7 @@ public final class TcecController {
             verifier.verify(envelope);
             TcecEndpointHandler<?, ?> handler = handlers.get(path);
             if (handler == null) return signed(codec.encodeError(4004, "Endpoint is not configured"));
-            return signed(dispatch(handler, envelope, codec));
+            return signed(dispatch(handler, envelope, codec, verifier));
         } catch (ProtocolException failure) {
             return signed(codec.encodeError(failure.ret(), safeMessage(failure.ret())));
         } catch (RuntimeException failure) {
@@ -140,12 +140,21 @@ public final class TcecController {
     }
 
     private static <Q, R> ResponseEnvelope dispatch(TcecEndpointHandler<Q, R> handler,
-                                                   RequestEnvelope envelope, TcecCodec codec) {
+                                                   RequestEnvelope envelope, TcecCodec codec, RequestVerifier verifier) {
+        // Deterministic decode/validation failures keep the claim: an identical retry cannot succeed.
         Q payload = codec.decodeRequest(envelope, handler.endpoint().requestType());
-        R response = handler.handle(payload, new RequestContext(envelope.operatorId(), envelope.timeStamp(), envelope.seq()));
-        if (response == null || !handler.endpoint().responseType().isInstance(response))
-            throw new IllegalStateException("Handler returned an invalid response");
-        return codec.encodeResponse(response);
+        try {
+            R response = handler.handle(payload, new RequestContext(envelope.operatorId(), envelope.timeStamp(), envelope.seq()));
+            if (response == null || !handler.endpoint().responseType().isInstance(response))
+                throw new IllegalStateException("Handler returned an invalid response");
+            return codec.encodeResponse(response);
+        } catch (RuntimeException failure) {
+            // The replay claim was taken before the business transaction. If the handler did not
+            // complete, release it so the partner's retry of the same signed request is not
+            // rejected as a replay. Concurrent duplicates are still rejected while this one runs.
+            verifier.release(envelope);
+            throw failure;
+        }
     }
 
     private static String route(Endpoint<?, ?> endpoint) {

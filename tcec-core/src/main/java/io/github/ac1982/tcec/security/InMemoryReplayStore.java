@@ -29,4 +29,10 @@ public final class InMemoryReplayStore implements ReplayStore {
         expirations.add(new Expiration(key, expiresAt));
         return true;
     }
+    /** Removes both structures' entries so repeated release/claim cycles stay within capacity. */
+    @Override public synchronized void release(String operatorId, String timeStamp, String requestFingerprint) {
+        var key = new Key(operatorId, timeStamp, requestFingerprint);
+        Instant expiresAt = claims.remove(key);
+        if (expiresAt != null) expirations.remove(new Expiration(key, expiresAt));
+    }
 }

@@ -33,6 +33,15 @@ public final class RequestVerifier {
         if (timestamp.isBefore(now.minus(allowedSkew)) || timestamp.isAfter(now.plus(allowedSkew))) throw invalid();
         if (!replays.claim(envelope.operatorId(), envelope.timeStamp(), fingerprint(envelope), timestamp.plus(allowedSkew).plusSeconds(1))) throw invalid();
     }
+    /**
+     * Releases the replay claim taken by a successful {@link #verify} when business processing failed,
+     * so the partner may retry the same signed request. Never throws; a failed release keeps the claim.
+     * @since 1.1.0
+     */
+    public void release(RequestEnvelope envelope) {
+        try { replays.release(envelope.operatorId(), envelope.timeStamp(), fingerprint(envelope)); }
+        catch (RuntimeException ignored) { /* fail closed: the claim simply expires */ }
+    }
     private static String fingerprint(RequestEnvelope envelope) {
         try {
             MessageDigest digest = MessageDigest.getInstance("SHA-256");

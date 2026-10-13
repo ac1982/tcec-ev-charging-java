@@ -7,4 +7,14 @@ import java.time.Instant;
  * the request signature does not authenticate the route.
  */
 @FunctionalInterface
-public interface ReplayStore { boolean claim(String operatorId, String timeStamp, String requestFingerprint, Instant expiresAt); }
+public interface ReplayStore {
+    boolean claim(String operatorId, String timeStamp, String requestFingerprint, Instant expiresAt);
+
+    /**
+     * Releases a claim this process admitted, after the business handler failed, so the partner can
+     * retry the identical signed request. Called only for a claim that returned true. The default
+     * keeps the claim (1.0.0 behavior). Implementations must not throw for an absent claim.
+     * @since 1.1.0
+     */
+    default void release(String operatorId, String timeStamp, String requestFingerprint) { }
+}
