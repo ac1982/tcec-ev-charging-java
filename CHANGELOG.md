@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased (target 1.1.0)
+## 1.0.1
 
 Wire format, signatures and encryption are unchanged (published vectors pass).
 
