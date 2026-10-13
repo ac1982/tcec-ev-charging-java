@@ -25,8 +25,9 @@ public final class TcecSession {
     private final Clock clock;
     private final Duration refreshAhead;
     private final ReentrantLock acquisitionLock = new ReentrantLock();
-    private AccessToken cached;
-    private Instant refreshAt;
+    /** Immutable snapshot, published atomically so cached reads need no lock. */
+    private record Cached(AccessToken token, Instant refreshAt) {}
+    private volatile Cached cached;
     private RuntimeException acquisitionFailure;
     private Instant retryAfter;
 
@@ -54,9 +55,22 @@ public final class TcecSession {
         this.refreshAhead = refreshAhead;
     }
 
-    /** Returns a validated cached token or performs one token exchange for concurrent callers. */
+    /**
+     * Returns a validated cached token or performs one token exchange for concurrent callers.
+     * Fresh tokens are read without locking. During early refresh, callers that find another
+     * thread refreshing keep using the still-valid token instead of queuing, and a failed early
+     * refresh falls back to the still-valid token (the next call retries after the cooldown).
+     */
     public String accessToken() {
-        acquisitionLock.lock();
+        Cached current = cached;
+        Instant now = clock.instant();
+        if (current != null && now.isBefore(current.refreshAt())) return current.token().value();
+        boolean stillValid = current != null && now.isBefore(current.token().expiresAt());
+        if (stillValid) {
+            if (!acquisitionLock.tryLock()) return current.token().value();
+        } else {
+            acquisitionLock.lock();
+        }
         try {
             return acquireUnderLock();
         } finally {
@@ -66,8 +80,13 @@ public final class TcecSession {
 
     private String acquireUnderLock() {
         Instant now = clock.instant();
-        if (cached != null && now.isBefore(refreshAt)) return cached.value();
-        if (acquisitionFailure != null && now.isBefore(retryAfter)) throw acquisitionFailure;
+        Cached current = cached;
+        if (current != null && now.isBefore(current.refreshAt())) return current.token().value();
+        boolean stillValid = current != null && now.isBefore(current.token().expiresAt());
+        if (acquisitionFailure != null && now.isBefore(retryAfter)) {
+            if (stillValid) return current.token().value();
+            throw acquisitionFailure;
+        }
         try {
             QueryTokenResponse response = client.acquireToken(tokenEndpoint);
             if (response == null || !client.operatorId().equals(response.operatorId()) || !Integer.valueOf(0).equals(response.succStat())
@@ -82,17 +101,18 @@ public final class TcecSession {
             Instant expires = now.plusSeconds(response.tokenAvailableTime());
             Duration remaining = Duration.between(clock.instant(), expires);
             if (remaining.isNegative() || remaining.isZero()) throw new ProtocolException(4002, "Token acquisition expired");
-            cached = new AccessToken(response.accessToken(), expires);
             Duration halfLifetime = remaining.dividedBy(2);
             Duration earlyRefresh = refreshAhead.compareTo(halfLifetime) > 0 ? halfLifetime : refreshAhead;
-            refreshAt = expires.minus(earlyRefresh);
+            AccessToken token = new AccessToken(response.accessToken(), expires);
+            cached = new Cached(token, expires.minus(earlyRefresh));
             acquisitionFailure = null;
-            return cached.value();
+            return token.value();
         } catch (RuntimeException failure) {
             acquisitionFailure = failure instanceof ProtocolException protocol
                     ? new ProtocolException(protocol.ret(), "Token acquisition failed")
                     : new TransportException("Token acquisition failed");
             retryAfter = clock.instant().plusSeconds(1);
+            if (current != null && clock.instant().isBefore(current.token().expiresAt())) return current.token().value();
             throw acquisitionFailure;
         }
     }
@@ -121,7 +141,7 @@ public final class TcecSession {
 
     private void invalidateIfCurrent(String token) {
         acquisitionLock.lock();
-        try { if (cached != null && cached.value().equals(token)) cached = null; }
+        try { Cached current = cached; if (current != null && current.token().value().equals(token)) cached = null; }
         finally { acquisitionLock.unlock(); }
     }
 

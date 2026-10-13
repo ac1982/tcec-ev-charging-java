@@ -487,4 +487,52 @@ class TcecClientTest {
         }
     }
 
+    @Test void failedEarlyRefreshKeepsUsingTheStillValidTokenUntilExpiry() {
+        AtomicInteger issued = new AtomicInteger();
+        responder = exchange -> issued.incrementAndGet() == 1
+                ? json(codec.encodeResponse(new QueryTokenResponse("123456789", 0, "token-1", 60, 0)))
+                : new Reply(502, new byte[0]);
+        MutableClock clock = new MutableClock(CLOCK.instant());
+        try (TcecClient client = client()) {
+            TcecSession session = new TcecSession(client, clock, Duration.ofSeconds(20));
+            assertEquals("token-1", session.accessToken());
+            clock.advance(Duration.ofSeconds(45)); // inside the early-refresh window, token still valid
+            assertEquals("token-1", session.accessToken(), "transient refresh failure must not fail callers");
+            assertEquals("token-1", session.accessToken(), "cooldown also serves the valid token");
+            assertEquals(2, issued.get());
+            clock.advance(Duration.ofSeconds(15)); // expired
+            assertThrows(TransportException.class, session::accessToken);
+        }
+    }
+
+    @Test void callersDoNotQueueBehindAnEarlyRefresh() throws Exception {
+        AtomicInteger issued = new AtomicInteger();
+        var refreshStarted = new java.util.concurrent.CountDownLatch(1);
+        var releaseRefresh = new java.util.concurrent.CountDownLatch(1);
+        responder = exchange -> {
+            int n = issued.incrementAndGet();
+            if (n == 2) {
+                refreshStarted.countDown();
+                try { releaseRefresh.await(); } catch (InterruptedException e) { throw new AssertionError(e); }
+            }
+            return json(codec.encodeResponse(new QueryTokenResponse("123456789", 0, "token-" + n, 60, 0)));
+        };
+        MutableClock clock = new MutableClock(CLOCK.instant());
+        try (TcecClient client = client(); ExecutorService callers = Executors.newVirtualThreadPerTaskExecutor()) {
+            TcecSession session = new TcecSession(client, clock, Duration.ofSeconds(20));
+            assertEquals("token-1", session.accessToken());
+            clock.advance(Duration.ofSeconds(45));
+            var refresher = callers.submit(session::accessToken);
+            assertTrue(refreshStarted.await(5, java.util.concurrent.TimeUnit.SECONDS));
+            var reader = callers.submit(session::accessToken);
+            try {
+                assertEquals("token-1", reader.get(2, java.util.concurrent.TimeUnit.SECONDS));
+            } finally {
+                releaseRefresh.countDown(); // never leave the stub server blocked on failure
+            }
+            assertEquals("token-2", refresher.get(5, java.util.concurrent.TimeUnit.SECONDS));
+            assertEquals("token-2", session.accessToken());
+            assertEquals(2, issued.get());
+        }
+    }
 }
