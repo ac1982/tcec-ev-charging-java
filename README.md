@@ -22,13 +22,13 @@ mvn --batch-mode --no-transfer-progress clean verify
 mvn install
 ```
 
-当前版本 `1.0.1`，尚未发布到 Maven Central。先从源码安装，再引用所需模块：
+当前版本 `1.0.2`，尚未发布到 Maven Central。先从源码安装，再引用所需模块：
 
 ```xml
 <dependency>
   <groupId>io.github.ac1982</groupId>
   <artifactId>tcec-spring-boot-starter</artifactId>
-  <version>1.0.1</version>
+  <version>1.0.2</version>
 </dependency>
 ```
 

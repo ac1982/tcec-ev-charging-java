@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.2
+
+### Fixed
+- Spring starter: once a business handler has returned, the replay claim is kept even if the
+  response is invalid or encoding/encryption/signing fails, so an identical retry is rejected as a
+  replay rather than re-executing the handler. Only a handler that throws releases the claim.
+
 ## 1.0.1
 
 Wire format, signatures and encryption are unchanged (published vectors pass).
@@ -11,9 +18,7 @@ Wire format, signatures and encryption are unchanged (published vectors pass).
 ### Fixed
 - Spring starter: a failing business handler no longer burns the replay claim. The claim is
   released so the partner's identical retry is processed instead of rejected with 4003.
-  Deterministic decode/validation failures (4004) keep the claim. Once the handler has
-  returned, the claim is kept even if the response is invalid or encoding/encryption/signing fails,
-  so a retry is rejected as a replay rather than re-executing the handler. Handlers must remain idempotent.
+  Deterministic decode/validation failures (4004) keep the claim. Handlers must remain idempotent.
 - `RedisReplayStore.claim` / `RedisTokenStore.validate`: a Redis connection failure now throws
   `ProtocolException(500)` instead of returning `false`, so partners receive a retryable Ret 500
   rather than 4003 (repeated request) or 4002 (invalid token).
