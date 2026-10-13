@@ -200,6 +200,30 @@ class TcecRouteAndStoreTest {
         });
     }
 
+    public static final class Unencodable {
+        @com.fasterxml.jackson.annotation.JsonProperty("Message")
+        public String getMessage() { throw new IllegalStateException("response cannot be serialized"); }
+    }
+
+    @Test void responseEncodingFailureAfterHandlerCompletedKeepsTheReplayClaim() {
+        AtomicInteger calls = new AtomicInteger();
+        Endpoint<Payload, Unencodable> endpoint = new Endpoint<>(ENDPOINT.path(), Payload.class, Unencodable.class,
+                true, ENDPOINT.outboundPath());
+        enabled.withBean("unencodableHandler", TcecEndpointHandler.class, () -> TcecEndpointHandler.of(endpoint, (value, context) -> {
+            calls.incrementAndGet();
+            return new Unencodable();
+        })).run(context -> {
+            MockMvc mvc = mvc(context);
+            String token = token(context.getBean(TokenStore.class));
+            var envelope = CODEC.encodeRequest(new Payload("ok"), "20261009160000", "0001");
+            // WireJson maps the serialization failure to 4003; the call count proves the retry was a replay.
+            assertEquals(4003, ret(send(mvc, ENDPOINT.path(), envelope, token)));
+            assertEquals(1, calls.get());
+            assertEquals(4003, ret(send(mvc, ENDPOINT.path(), envelope, token)), "retry is rejected as a replay");
+            assertEquals(1, calls.get(), "completed handler must not re-execute");
+        });
+    }
+
     @Test void deterministicPayloadRejectionKeepsTheReplayClaim() {
         enabled.withBean("locksHandler", TcecEndpointHandler.class, () -> TcecEndpointHandler.of(Endpoints.QUERY_GROUND_LOCKS,
                 (value, context) -> new io.github.ac1982.tcec.model.QueryGroundLocksResponse())).run(context -> {

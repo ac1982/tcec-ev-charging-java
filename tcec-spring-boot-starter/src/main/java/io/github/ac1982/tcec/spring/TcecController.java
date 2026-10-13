@@ -143,11 +143,9 @@ public final class TcecController {
                                                    RequestEnvelope envelope, TcecCodec codec, RequestVerifier verifier) {
         // Deterministic decode/validation failures keep the claim: an identical retry cannot succeed.
         Q payload = codec.decodeRequest(envelope, handler.endpoint().requestType());
+        R response;
         try {
-            R response = handler.handle(payload, new RequestContext(envelope.operatorId(), envelope.timeStamp(), envelope.seq()));
-            if (response == null || !handler.endpoint().responseType().isInstance(response))
-                throw new IllegalStateException("Handler returned an invalid response");
-            return codec.encodeResponse(response);
+            response = handler.handle(payload, new RequestContext(envelope.operatorId(), envelope.timeStamp(), envelope.seq()));
         } catch (RuntimeException failure) {
             // The replay claim was taken before the business transaction. If the handler did not
             // complete, release it so the partner's retry of the same signed request is not
@@ -155,6 +153,11 @@ public final class TcecController {
             verifier.release(envelope);
             throw failure;
         }
+        // The handler completed, so its side effects may be committed. Keep the claim even if the
+        // response is invalid or encoding/encryption/signing fails: a retry must not re-execute it.
+        if (response == null || !handler.endpoint().responseType().isInstance(response))
+            throw new IllegalStateException("Handler returned an invalid response");
+        return codec.encodeResponse(response);
     }
 
     private static String route(Endpoint<?, ?> endpoint) {
