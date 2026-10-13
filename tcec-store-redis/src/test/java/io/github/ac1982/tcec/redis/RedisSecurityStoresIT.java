@@ -230,8 +230,14 @@ class RedisSecurityStoresIT {
             assertEquals(ProtocolException.SYSTEM_ERROR, error.ret());
             assertEquals("Token store unavailable", error.getMessage());
             assertNull(error.getCause());
-            assertFalse(tokens.validate("123456789", "secret-token"));
-            assertFalse(new RedisReplayStore(unavailable, namespace()).claim("op", "ts", "fp", Instant.now().plusSeconds(1)));
+            var validateError = assertThrows(ProtocolException.class, () -> tokens.validate("123456789", "secret-token"));
+            assertEquals(ProtocolException.SYSTEM_ERROR, validateError.ret());
+            assertNull(validateError.getCause());
+            var claimError = assertThrows(ProtocolException.class,
+                    () -> new RedisReplayStore(unavailable, namespace()).claim("op", "ts", "fp", Instant.now().plusSeconds(1)));
+            assertEquals(ProtocolException.SYSTEM_ERROR, claimError.ret());
+            assertEquals("Replay store unavailable", claimError.getMessage());
+            assertNull(claimError.getCause());
         }
     }
 

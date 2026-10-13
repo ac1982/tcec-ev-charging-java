@@ -210,4 +210,19 @@ class TcecRouteAndStoreTest {
             assertEquals(4003, ret(send(mvc, "evcs/sdk/query_ground_locks", envelope, token)));
         });
     }
+
+    @Test void unavailableReplayStoreIsARetryableSystemErrorNotAReplay() {
+        AtomicInteger calls = new AtomicInteger();
+        ReplayStore down = (operator, timestamp, identity, expiry) -> {
+            throw new io.github.ac1982.tcec.ProtocolException(500, "SECRET redis host");
+        };
+        enabled.withBean(ReplayStore.class, () -> down).withBean("handler", TcecEndpointHandler.class,
+                () -> TcecEndpointHandler.of(ENDPOINT, (value, context) -> { calls.incrementAndGet(); return value; })).run(context -> {
+            var response = send(mvc(context), ENDPOINT.path(), CODEC.encodeRequest(new Payload("ok"), "20261009160000", "0001"),
+                    token(context.getBean(TokenStore.class)));
+            assertEquals(500, ret(response));
+            assertFalse(response.getResponse().getContentAsString().contains("SECRET"));
+            assertEquals(0, calls.get());
+        });
+    }
 }

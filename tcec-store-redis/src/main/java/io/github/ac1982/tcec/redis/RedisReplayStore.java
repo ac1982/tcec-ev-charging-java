@@ -6,6 +6,8 @@ import java.time.Instant;
 import java.util.List;
 import java.util.Objects;
 import redis.clients.jedis.RedisClient;
+import io.github.ac1982.tcec.ProtocolException;
+import redis.clients.jedis.exceptions.JedisConnectionException;
 import redis.clients.jedis.exceptions.JedisException;
 
 /**
@@ -62,6 +64,9 @@ public final class RedisReplayStore implements ReplayStore {
         try {
             Object result = redis.eval(CLAIM, List.of(key), List.of(Long.toString(expiryMillis), Long.toString(maxTtlMillis)));
             return Long.valueOf(1).equals(result);
+        } catch (JedisConnectionException outage) {
+            // An outage is not a replay: report a retryable system error (Ret 500), not 4003.
+            throw new ProtocolException(ProtocolException.SYSTEM_ERROR, "Replay store unavailable");
         } catch (JedisException failure) {
             return false;
         }

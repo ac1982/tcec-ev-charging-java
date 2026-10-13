@@ -12,6 +12,7 @@ import java.util.Base64;
 import java.util.List;
 import java.util.Objects;
 import redis.clients.jedis.RedisClient;
+import redis.clients.jedis.exceptions.JedisConnectionException;
 import redis.clients.jedis.exceptions.JedisException;
 
 /**
@@ -88,6 +89,9 @@ public final class RedisTokenStore implements TokenStore {
             Object result = redis.eval(VALIDATE, List.of(key(operatorId)), List.of());
             return result instanceof String expected && RedisKeys.bounded(expected, 4096)
                     && MessageDigest.isEqual(expected.getBytes(StandardCharsets.UTF_8), token.getBytes(StandardCharsets.UTF_8));
+        } catch (JedisConnectionException outage) {
+            // Answering 4002 would make the partner drop a valid token and stampede query_token.
+            throw unavailable();
         } catch (JedisException failure) {
             return false;
         }

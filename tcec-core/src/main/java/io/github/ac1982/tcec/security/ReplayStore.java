@@ -4,7 +4,9 @@ import java.time.Instant;
  * Implement atomically across all instances in a cluster. False means replay or
  * capacity refusal. The third argument is an opaque authenticated-message
  * fingerprint, not the four-character protocol Seq. Never include an HTTP route:
- * the request signature does not authenticate the route.
+ * the request signature does not authenticate the route. When the store itself is unavailable,
+ * throw ProtocolException(SYSTEM_ERROR) instead of returning false, so partners see a retryable
+ * Ret 500 rather than a 4003 replay rejection.
  */
 @FunctionalInterface
 public interface ReplayStore {
